@@ -119,4 +119,263 @@ print(len(arr))
 arr = [1,2,3]
 print(arr[-1])
 
+# Sublists (aka string slicing)
+# Similar to for-loops, last index is non inclusive
+arr =[1,2,3,4]
+print(arr[1:3])
 
+# Unpacking 
+a, b, c = [1,2,3]
+print(a,b,c)
+
+# Lopp through arrays
+
+nums = [1 ,2 ,3]
+
+# Using index 
+for i in range(len(nums)):
+    print(nums[i])
+
+
+# Without index
+for n in nums:
+    print(n)
+
+# With index and value
+for i, n in enumerate(nums):
+    print(i, n)
+print("---------------------------")
+
+# Loop through multiple arrays simultaneously
+# with unpacking
+nums1 = [1,3,5]
+nums2 = [2,4,6]
+for n1, n2 in zip(nums1,nums2):
+    print(n1, n2)
+print("------------------------")
+
+# Reverse and Sort
+arr = [1,2,3]
+arr.reverse()
+print(arr)
+
+# by default asc 
+arr.sort()
+print(arr)
+
+# rerverse order (des)
+arr.sort(reverse=True)
+
+# Sorting strings
+arr = ['bob', 'alice', 'charlie', 'jane', 'doe']
+arr.sort()
+print(arr)
+
+# Custom sorting by length of the string
+arr = ['bob', 'alice', 'charlie', 'jane', 'doe']
+arr.sort(key=lambda x: len(x))
+print("--------List Comprehension----------------")
+
+# List comprehension
+arr = [i for i in range(5)]
+print(arr)
+print("-----------------------")
+
+# 2-D lists
+arr = [[0]*4 for i in range(4)]
+print(arr)
+
+# This wont work
+# each of thw four rows will be same if
+# we modify one row others will also change
+arr = [[0] * 4] * 4
+print(arr)
+arr[0][0] = 1
+print(arr)
+print("----------------------")
+
+#  String 
+s = "abc"
+print(s[0:2])
+
+# they are immutable
+# s[0] = "A "
+# print(s)
+
+# this crteates a new string
+s += 'xyz'
+print(s)
+
+# Valid numeric string are converted
+print(int("123") + int('123'))
+print(str(123) + str(123))
+
+# ASCII values of char
+print(ord('a'))
+print(ord('b'))
+
+# Combining a list of strings (which an empty string delimitor)
+
+Strings = ['abe','efg','hijk']
+print("-->".join(Strings))
+
+# Queues (double ended queue)
+from collections import deque
+
+queue = deque()
+queue.append(1)
+queue.append(2)
+print(queue)
+
+queue.popleft()
+print(queue)
+
+queue.appendleft(1)
+print(queue)
+
+queue.pop()
+print(queue)
+print("-------------------------")
+
+# Hash Set
+mySet = set()
+
+mySet.add(1)
+mySet.add(2)
+print(mySet)
+
+print(len(mySet))
+
+print(1 in mySet)
+print(2 in mySet)
+print(3 in mySet)
+
+mySet.remove(2)
+print(2 in mySet)
+
+# list to set
+
+print(set([1,2,3,4,5]))
+
+# set comprehension
+mySet = {i+1 for i in range(5)}
+print(mySet)
+
+# hashmap (aka dict)
+myMap = {}
+myMap['alice'] = 88
+myMap['bob'] = 77
+print(myMap)
+print(len(myMap)) # number of keys
+
+myMap['alice'] = 80
+print(myMap['alice'])
+
+print('alice' in myMap)
+myMap.pop('alice') #removing key will also remove the value
+print('alice' in myMap)
+
+myMap = {"alice": 90, "bob": 70}
+print(myMap)
+
+# Dict comprehension
+myMap = {i: i*2 for i in range(3)}
+print(myMap)
+
+# Looping through dict
+myMap = {"alice": 90, "bob": 70}
+for key in myMap:
+    print(key,myMap[key])
+
+for val in myMap.values():
+    print(val)
+
+for key, value in myMap.items():
+    print(key,value)
+
+# Tuples are like arrays but immutable
+tup = (1,2,3)
+print(tup)
+print(tup[0])
+print(tup[-1])
+
+# cant modify
+# tup[0]=1
+
+# can be used as key for hash map/set
+myMap = {(1,2):3}
+print(myMap[(1,2)])
+
+mySet = set()
+mySet.add((1,2))
+print((1,2) in mySet)
+
+# lists cant be keys
+# myMap = [[3,4]] = 5
+
+# Heaps 
+import heapq
+# by default minHeap
+# under the hood are arrays
+minHeap = []
+heapq.heappush(minHeap,3)
+heapq.heappush(minHeap,2)
+heapq.heappush(minHeap,4)
+
+# Min is always at index 0
+print(minHeap[0])
+
+while len(minHeap):
+    print(heapq.heappop(minHeap))
+
+# No max heaps by default , workaround is 
+# to use min heap and * -1 when push and pop
+
+maxHeap = []
+heapq.heappush(maxHeap,-3)
+heapq.heappush(maxHeap,-2)
+heapq.heappush(maxHeap,-1)
+
+# max is always at index 0
+print(-1 * maxHeap[0])
+
+while len(maxHeap):
+    print(-1 * heapq.heappop(maxHeap))
+
+# build heap from initial values
+arr = [1,2,3,4,5,6,7]
+heapq.heapify(arr)
+while len(arr):
+    print(heapq.heappop(arr))
+
+# functions
+def myfun(n, m):
+    return n*n
+
+# Nested functions have access to outer varialbes
+
+def outer(a,b):
+    c = 'c'
+
+    def inner():
+        return a + b + c
+    return inner()
+print(outer("a","b"))
+
+# 
+
+
+
+# classes
+class MyClass:
+    # constructor
+    def __init__(self,nums):
+        # member variables
+        self.nums = nums
+
+    # self key word is req as param
+    def getLength(self):
+        return self.size
+    
+    def getDoubleLength(self):
+        return 2 * self.getDoubleLength()
