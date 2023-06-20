@@ -28,6 +28,29 @@ class Graph:
 # addEdge('D', 'A')
 # addEdge('D', 'E')
 
+# #weighted graph
+
+# 5 7
+# A B 5
+# A C 9
+# B D 2
+# B E 7
+# C D 3
+# D A 1
+# D E 13
+
+
+# #unweighted graph
+
+# 5 7
+# A B 
+# A C 
+# B D 
+# B E 
+# C D 
+# D A 
+# D E 
+
 # g = Graph()
 # print("Enter nodes and edges")
 # nodes, edges = input().split()
