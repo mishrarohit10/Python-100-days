@@ -1,6 +1,13 @@
-matrix = [
-        [1,3,5,7],
-        [10,11,16,20],
-        [23,30,34,60]
-      ]
-print(len(matrix[0]))
+def func(n, sum):
+
+    if n == 0:
+        print("n is 0")
+        return sum
+    
+    if n % 10 == 0:
+        return func(n // 10, sum + 1)
+    
+    print(n)
+    return func(n // 10, sum)
+
+print(func(100, 0))
