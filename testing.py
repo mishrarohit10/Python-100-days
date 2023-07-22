@@ -1,5 +1,4 @@
 import math
-
 # rough
 testCases = int(input())
 while testCases > 0:
